@@ -85,7 +85,7 @@ SpendSave
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/SpendSave.git
+git clone https://github.com/<your-github-username>/SpendSave-tracker.git
 ```
 
 ### Navigate
