@@ -1,1 +1,27 @@
+# SaveWise Frontend
+
+## Overview
+
+SaveWise is a smart savings assistant application designed to help users manage their expenses and develop better saving habits through intelligent transaction tracking and spare-change savings.
+
+This repository contains the frontend implementation of SaveWise, providing the user interface for interacting with the application. The frontend connects with the Flask backend to send and retrieve transaction data.
+
+## Features
+
+- Modern and simple user interface
+- Interactive savings dashboard
+- Add transaction functionality
+- Display transaction details
+- Expense tracking interface
+- Backend API integration
+- Responsive webpage design
+- Easy-to-use navigation
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Project Structure
 
