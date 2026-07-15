@@ -152,7 +152,11 @@ Example:
 ## 👨‍💻 Contributors
 
 - Avani Kollur
-- (Add Team Members)
+- Manya M Poojari
+- Sakshi SB
+- Hari
+- Kiran Kumar
+- Hemanth R
 
 ---
 
