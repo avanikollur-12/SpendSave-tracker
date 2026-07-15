@@ -2,77 +2,7 @@
 
 *Save Smarter. Spend Wiser.*
 
-Backend for the **SpendSave** web application that automatically rounds up transactions into savings and provides spending analytics. Built using **Flask** and **SQLite**, this backend is designed for a single-user demo or academic project without authentication.
-
----
-
-## Setup
-
-```bash
-cd backend
-pip install -r requirements.txt
-python app.py
-```
-
-The server will start at:
-
-```
-http://127.0.0.1:5000
-```
-
-The frontend can be accessed through Flask or by opening the frontend separately if it is stored in a different folder.
-
----
-
-## Database
-
-A SQLite database named **spendsave.db** is created automatically the first time the application runs.
-
-Delete the database file anytime if you want to reset all transactions and start fresh.
-
----
-
-## API Reference
-
-| Method | Endpoint | Description |
-|---------|----------|-------------|
-| GET | `/api/transactions` | Retrieve all transactions (latest first) |
-| POST | `/api/transactions` | Add a new transaction `{description, amount, category}` |
-| DELETE | `/api/transactions/<id>` | Delete a transaction |
-| GET | `/api/summary` | Returns `{total_spent, total_saved, transaction_count}` |
-| GET | `/api/analytics` | Returns spending grouped by category |
-| GET | `/api/goal` | Retrieve current savings goal |
-| POST | `/api/goal` | Update savings goal |
-
----
-
-## Round-Up Savings Logic
-
-SpendSave automatically rounds every transaction up to the nearest **₹10**.
-
-The difference between the transaction amount and the rounded amount is stored as the user's savings.
-
-**Example**
-
-```
-Purchase: ₹63
-Rounded To: ₹70
-Savings: ₹7
-```
-
-This spare change is accumulated and displayed in the Savings Dashboard.
-
----
-
-## Features
-
-- Automatic Round-Up Savings
-- Transaction Management
-- Spending Analytics
-- Savings Summary
-- Savings Goal Tracking
-- SQLite Database Storage
-- RESTful API
+The **SpendSave Backend** powers the SpendSave web application by handling transaction management, automatic spare-change savings, spending analytics, and savings goals. Built with **Flask** and **SQLite**, it is designed as a lightweight backend for a single-user demo or academic project.
 
 ---
 
@@ -80,13 +10,87 @@ This spare change is accumulated and displayed in the Savings Dashboard.
 
 ```
 backend/
-├── app.py               # Flask application and API routes
-├── requirements.txt     # Python dependencies
-├── spendsave.db         # SQLite database (auto-generated)
-├── static/
-│   └── index.html       # Frontend (if served by Flask)
-└── README.md
+├── app.py              # Flask application and API routes
+├── requirements.txt    # Python dependencies
+└── README.md           # Backend documentation
 ```
+
+> **Note:** A SQLite database (`spendsave.db`) is automatically created when the application is run for the first time.
+
+---
+
+## Requirements
+
+- Python 3.10+
+- Flask
+- Flask-CORS
+- SQLite (included with Python)
+
+Install all required packages using:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Running the Backend
+
+Start the Flask server by running:
+
+```bash
+python app.py
+```
+
+The backend will start at:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## Features
+
+- Add and manage transactions
+- Automatic round-up savings calculation
+- Spending analytics by category
+- Dashboard summary
+- Savings goal management
+- RESTful API
+- SQLite database integration
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/transactions` | Retrieve all transactions |
+| POST | `/api/transactions` | Add a new transaction |
+| DELETE | `/api/transactions/<id>` | Delete a transaction |
+| GET | `/api/summary` | Get spending and savings summary |
+| GET | `/api/analytics` | View category-wise spending analytics |
+| GET | `/api/goal` | Retrieve the current savings goal |
+| POST | `/api/goal` | Update the savings goal |
+
+---
+
+## Round-Up Savings Logic
+
+Every transaction is automatically rounded up to the nearest **₹10**.
+
+The difference between the actual amount and the rounded value is saved as spare change.
+
+**Example**
+
+| Transaction | Rounded To | Saved |
+|-------------|------------|-------|
+| ₹63 | ₹70 | ₹7 |
+| ₹145.50 | ₹150 | ₹4.50 |
+| ₹899.30 | ₹900 | ₹0.70 |
+
+This accumulated spare change is displayed in the SpendSave dashboard.
 
 ---
 
@@ -94,8 +98,8 @@ backend/
 
 - Python
 - Flask
+- Flask-CORS
 - SQLite
-- REST API
 
 ---
 
@@ -103,7 +107,7 @@ backend/
 
 - User Authentication
 - Bank API Integration
-- AI-Based Spending Recommendations
-- Monthly Budget Planning
+- AI-Based Spending Insights
+- Budget Planning
 - Cloud Database Support
 - Email Notifications
